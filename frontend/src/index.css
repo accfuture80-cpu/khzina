@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-paper text-ink font-sans;
+}
+
+/* الأرقام المالية بتتعرض بشكل ثابت العرض عشان الأعمدة تتصف صح */
+.tabular-amount {
+  font-variant-numeric: tabular-nums;
+  direction: ltr;
+  display: inline-block;
+}
+
+/* تنسيقات الطباعة: نخفي أي حاجة مالهاش لازمة في الورقة المطبوعة */
+@media print {
+  aside,
+  .print\:hidden {
+    display: none !important;
+  }
+  main {
+    overflow: visible !important;
+  }
+  body {
+    background: white !important;
+  }
+}
